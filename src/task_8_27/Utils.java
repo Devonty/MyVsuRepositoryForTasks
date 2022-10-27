@@ -5,8 +5,24 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
 
 public class Utils {
+    public static void writeToFile(String fileName, String data) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(data);
+
+            writer.close();
+        }
+        catch (IOException ie){
+            ie.printStackTrace();
+        }
+    }
+
     public static final String NOT_FOUND_MSG = "//_File_not_found_//";
 
     public static String readFile(String fileName) {
@@ -67,22 +83,4 @@ public class Utils {
 
 }
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
 
-public class Utils {
-
-    public static void writeToFile(String fileName, String data) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-            writer.write(data);
-
-            writer.close();
-        }
-        catch (IOException ie){
-            ie.printStackTrace();
-        }
-    }
-}
