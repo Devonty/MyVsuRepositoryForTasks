@@ -1,3 +1,5 @@
+package stuff;
+
 import java.security.AlgorithmConstraints;
 import java.util.Scanner;
 

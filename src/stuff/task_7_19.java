@@ -1,3 +1,5 @@
+package stuff;
+
 import java.util.Arrays;
 
 public class task_7_19 {

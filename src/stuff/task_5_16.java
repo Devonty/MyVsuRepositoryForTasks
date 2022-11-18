@@ -1,3 +1,5 @@
+package stuff;
+
 import java.util.Scanner;
 
 public class task_5_16 {

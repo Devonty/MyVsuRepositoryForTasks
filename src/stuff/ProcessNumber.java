@@ -1,3 +1,5 @@
+package stuff;
+
 public class ProcessNumber {
     private static final String digits = "0123456789ABCDEF";
 
