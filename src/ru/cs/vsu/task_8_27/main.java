@@ -1,5 +1,8 @@
 package ru.cs.vsu.task_8_27;
 
+import ru.cs.vsu.tools.FileInfo;
+import ru.cs.vsu.tools.Utils;
+
 import java.io.IOException;
 
 public class Main {
@@ -13,8 +16,11 @@ public class Main {
         };
         System.out.print(isMatrixCorrect(matrix));
 
+        System.out.println();
+
         FileInfo fileInfo = new FileInfo(args);
         matrix = Utils.readIntMatrixFromFile(fileInfo.getInputPath());
+        System.out.print(isMatrixCorrect(matrix));
     }
 
     public static boolean isMatrixCorrect(int[][] matrix) {

@@ -1,4 +1,4 @@
-package ru.cs.vsu.task_8_27;
+package ru.cs.vsu.tools;
 
 import java.util.Scanner;
 

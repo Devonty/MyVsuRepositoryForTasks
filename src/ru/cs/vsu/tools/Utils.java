@@ -1,4 +1,4 @@
-package ru.cs.vsu.task_8_27;
+package ru.cs.vsu.tools;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -34,7 +34,6 @@ public class Utils {
     }
 
     public static int[][] readIntMatrixFromFile(String filePath) throws IOException {
-        System.out.println(filePath);
         File file = new File(filePath);
         file.createNewFile();
         Scanner scanner = new Scanner(file);

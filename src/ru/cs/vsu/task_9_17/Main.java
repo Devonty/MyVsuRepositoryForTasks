@@ -1,11 +1,10 @@
 package ru.cs.vsu.task_9_17;
 
-import ru.cs.vsu.task_8_27.Utils;
-import ru.cs.vsu.task_8_27.FileInfo;
+import ru.cs.vsu.tools.Utils;
+import ru.cs.vsu.tools.FileInfo;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
