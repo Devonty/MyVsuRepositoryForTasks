@@ -60,16 +60,6 @@
           <text value="D:\.JavaProjects\HelloWorld\src\ru\cs\vsu\task_8_27\output\output.txt"/>
         </properties>
       </component>
-      <component id="71e56" class="javax.swing.JButton" binding="outputSubmitButton">
-        <constraints>
-          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="115" height="30"/>
-          </grid>
-        </constraints>
-        <properties>
-          <text value="Сохранить в файл"/>
-        </properties>
-      </component>
       <hspacer id="18b9c">
         <constraints>
           <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="2" indent="0" use-parent-layout="false">
@@ -163,6 +153,16 @@
         </constraints>
         <properties>
           <text value="Убрать столбец"/>
+        </properties>
+      </component>
+      <component id="71e56" class="javax.swing.JButton" binding="outputSubmitButton">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="115" height="30"/>
+          </grid>
+        </constraints>
+        <properties>
+          <text value="Сохранить в файл"/>
         </properties>
       </component>
     </children>
