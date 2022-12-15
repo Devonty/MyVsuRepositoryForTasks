@@ -8,6 +8,28 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Utils {
+
+
+    public static void writeFile(String filePath, String data) throws IOException {
+        File file = new File(filePath);
+        file.createNewFile();
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+
+        fileOutputStream.write(data.getBytes());
+        fileOutputStream.close();
+    }
+    public static String readFile(String filePath) throws IOException {
+        File file = new File(filePath);
+        Scanner scanner = new Scanner(file);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        while(scanner.hasNextLine()){
+            stringBuilder.append(scanner.nextLine());
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
+    }
+
     public static void writeIntMatrixToFile(String filePath, int[][] matrix) throws IOException {
         File file = new File(filePath);
         file.createNewFile();
