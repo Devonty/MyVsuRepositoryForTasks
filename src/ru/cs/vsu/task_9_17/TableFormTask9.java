@@ -1,36 +1,43 @@
-package ru.cs.vsu.task_8_27;
+package ru.cs.vsu.task_9_17;
 
 import ru.cs.vsu.tools.Utils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.List;
 
+public class TableFormTask9 extends JFrame {
 
-public class TableFrame extends JFrame {
-    private JTextField inputPathTF;
-    private JButton inputSubmitButton;
-    private JLabel inputLabel;
+    private JTable table1;
+    private JPanel panel1;
     private JButton outputSubmitButton;
     private JTextField outputPathTF;
     private JLabel outputLabel;
-    private JTable table;
+    private JLabel inputLabel;
+    private JButton inputSubmitButton;
     private JPanel mainPanel;
+    private JTextField inputPathTF;
+    private JTable table;
     private JLabel statusLabel;
     private JButton addRowButton;
-    private JButton removeRowButton;
-    private JButton removeColumnButton;
     private JButton addColumnButton;
     private JButton checkButton;
+    private JButton removeRowButton;
+    private JButton removeColumnButton;
+    private JTextField index1TextField;
+    private JTextField index2TextField;
 
-    public TableFrame() {
+    public TableFormTask9() throws HeadlessException {
         setContentPane(mainPanel);
         setTitle("Table");
         setSize(650, 600);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
+
         inputSubmitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -41,12 +48,12 @@ public class TableFrame extends JFrame {
                 try {
                     String path = inputPathTF.getText();
                     matrix = Utils.readIntMatrixFromFile(path);
-                } catch (IOException e){
+                } catch (IOException e) {
                     statusLabel.setText("Ошибка чтения!");
                     return;
                 }
                 // file data check
-                if (matrix.length == 0){
+                if (matrix.length == 0) {
                     statusLabel.setText("Файл пуст!");
                     return;
                 }
@@ -68,6 +75,7 @@ public class TableFrame extends JFrame {
                 }
 
                 table.setModel(dtm);
+                index2TextField.setText(Integer.toString(cols - 1));
                 statusLabel.setText("Успешно импотрирован!");
             }
         });
@@ -79,12 +87,12 @@ public class TableFrame extends JFrame {
 
                 String path = outputPathTF.getText();
 
-                int [][] matrix = Utils.getMatrixFromTable(table);
+                int[][] matrix = Utils.getMatrixFromTable(table);
 
                 // write to file
-                try{
+                try {
                     Utils.writeIntMatrixToFile(path, matrix);
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
                     statusLabel.setText("Ошибка сохранения!");
                 }
@@ -128,22 +136,28 @@ public class TableFrame extends JFrame {
         checkButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                int [][] matrix = Utils.getMatrixFromTable(table);
-                boolean checkResult =  Main.isMatrixCorrect(matrix);
-                statusLabel.setText(checkResult ? "Значения упорядочены" : "Значегия не упорядочены");
+                int index1 = Integer.parseInt(index1TextField.getText());
+                int index2 = Integer.parseInt(index2TextField.getText());
+
+                int[][] matrix = Utils.getMatrixFromTable(table);
+                List<List<Integer>> listMatrix = Utils.getListMatrixFromArrayMatrix(matrix);
+                for (List<Integer> integers : listMatrix) {
+                    Main.sort(integers, index1, index2);
+                }
+                Utils.setMatrixToTable(table, listMatrix);
             }
         });
     }
 
     public static void main(String[] args) {
-        TableFrame tableFrame = new TableFrame();
+        TableFormTask9 formTask9 = new TableFormTask9();
     }
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
         DefaultTableModel dtm = new DefaultTableModel(3, 5);
         dtm.setColumnCount(5);
-        dtm.setRowCount(3);
+        dtm.setRowCount(1);
         table = new JTable(dtm);
     }
 }
